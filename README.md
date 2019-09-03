@@ -1,4 +1,4 @@
-# clarity
+# vue-electron app
 
 Based on...
 https://github.com/kdydesign/vue-electron5
