@@ -1,4 +1,11 @@
-# clarity
+# vue-electron
+
+Based on...
+
+https://github.com/kdydesign/vue-electron5
+
+página oficial:
+https://simulatedgreg.gitbooks.io/electron-vue/content/en/?ref=madewithvuejs.com
 
 > An electron-vue project
 
