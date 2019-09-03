@@ -1,5 +1,11 @@
 # clarity
 
+Based on...
+https://github.com/kdydesign/vue-electron5
+
+official documentation
+https://simulatedgreg.gitbooks.io/electron-vue/content/en/?ref=madewithvuejs.com
+
 > An electron-vue project
 
 #### Build Setup
