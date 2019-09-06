@@ -8,7 +8,12 @@ export default new Router({
     {
       path: '/',
       name: 'main-menu',
-      component: require('@/components/MainMenu').default
+      component: require('@/components/MainMenu').default,
+    },
+    {
+      path: '/menuConfig',
+      name: 'menu-config',
+      component: require('@/components/MenuConfig').default,
     },
     {
       path: '*',

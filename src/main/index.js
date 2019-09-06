@@ -10,21 +10,24 @@ if (process.env.NODE_ENV !== 'development') {
 
 let mainWindow
 const winURL = process.env.NODE_ENV === 'development'
-    ? `http://localhost:9080`
-    : `file://${__dirname}/index.html`
+  ? `http://localhost:9080`
+  : `file://${__dirname}/index.html`
 
 const electron = require('electron')
+const windowManager = require('electron-window-manager')
 
-function createWindow () {
+function createWindow() {
   /**
    * Initial window options
    */
   const { width, height } = electron.screen.getPrimaryDisplay()
-.workAreaSize
-  const yposition = height - 80;
-  mainWindow = new BrowserWindow({
+    .workAreaSize
+  const yposition = height - 60;
+  //mainWindow = new BrowserWindow({
+    windowManager.init( '...' );
+    windowManager.setDefaultSetup({
     width,
-    height: 80,
+    height: 60,
     x: 0,
     y: yposition,
     alwaysOnTop: true,
@@ -36,12 +39,10 @@ function createWindow () {
       nodeIntegration: true
     }
   })
+  //mainWindow.loadURL(winURL)
+  windowManager.open('mainmenu', 'Clarity', winURL)
 
-  mainWindow.loadURL(winURL)
-
-  mainWindow.on('closed', () => {
-    mainWindow = null
-  })
+  
 }
 
 app.on('ready', createWindow)
@@ -57,6 +58,9 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+//Janelas do sistema:
+
 
 /**
  * Auto Updater
