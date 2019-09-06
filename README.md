@@ -1,6 +1,6 @@
 # vue-electron
 
-WHATS IT IS
+# WHATS IT IS
 Aplicativo Desktop desenvolvido com frameworks javascript.
 
 FEATURES
@@ -12,7 +12,7 @@ A idéia principal é uma barra de ferramentas sempre ativa e sempre visivel par
 -chat
 -controle de horas de utilização dos serviços
 
-INSTALATION
+# INSTALATION
 #### Build Setup
 
 ``` bash
@@ -25,7 +25,7 @@ npm run dev
 # build electron application for production
 npm run build
 ```
-TECHNOLOGY
+# TECHNOLOGY
 Inicialmente como camada frontend com utilização JSON para comunicação e interação com o BackEnd
 
 --Tecnologia
