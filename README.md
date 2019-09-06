@@ -3,7 +3,8 @@
 ## WHATS IT IS
 Aplicativo Desktop desenvolvido com frameworks javascript.
 
-FEATURES
+## FEATURES
+
 A idéia principal é uma barra de ferramentas sempre ativa e sempre visivel para a utilização das ferramentas da empresa como:
 -chamadas telefonicas monitoradas
 -registro de informações de chamadas
@@ -11,7 +12,9 @@ A idéia principal é uma barra de ferramentas sempre ativa e sempre visivel par
 -envio e recebimento de emails
 -chat
 -controle de horas de utilização dos serviços
+
 ---
+
 ## INSTALATION
 #### Build Setup
 
