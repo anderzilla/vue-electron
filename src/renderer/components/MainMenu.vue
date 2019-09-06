@@ -1,6 +1,6 @@
 <template>
   <main id="main-menu">
-    <div class="row">
+    <v-row>
       <div id="menu-principal">
         <div class="menu-icones">
           <ul>
@@ -59,7 +59,7 @@
             </li>
           </ul>
       </div>
-    </div>
+    </v-row>
   </main>
 </template>
 
@@ -67,6 +67,7 @@
 import dashboardMenu from "./Paginas/dashboardMenu";
 import { BrowserWindow, remote } from "electron";
 import { path } from "path";
+
 const windowManager = remote.require('electron-window-manager');
 
 export default {

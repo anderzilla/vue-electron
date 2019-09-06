@@ -1,22 +1,23 @@
 <template>
   <main id="menu-config">
-    <div class="row">
+    <v-row>
       <div class="col-md-4" id="menu-config">
         <div class="menu-config">
           <ul @mouseleave="close">
             <li>
-             <span class="titulo">Configurações</span>
+             <button @click="configuracoes" class="titulo">Configurações</button>
             </li>
             <li>
-             <span>Grupos</span>
+              <button @click="grupos">Grupos</button>
             </li>
             <li>
-             <span class="pausas">Pausas <font-awesome-icon icon="chevron-right" /></span>
+              <button @click="pausas" class="pausas">Pausas  <font-awesome-icon icon="chevron-right" /></button>
             </li>
             <li>
-             <span class="disponivel"><font-awesome-icon icon="check-circle" /> Disponível</span>
+              <button @click="disponivel" class="disponivel"><font-awesome-icon icon="check-circle" />  Disponível</button>
             </li>
             <li>
+              <button @click="grupos">Grupos</button>
              <span>Logout</span>
             </li>
             <li class="ultimo">
@@ -27,7 +28,7 @@
           </ul>
         </div>
       </div>
-    </div>
+    </v-row>
   </main>
 </template>
 
@@ -69,6 +70,7 @@ body {
   background-color: #ffffff;
   overflow-x: hidden;
   border-radius: 5px;
+  border: solid 1px #cecece;
   text-align: center;
   padding: 0;
 }
@@ -114,6 +116,7 @@ main > div {
 .menu-config ul li:hover {
   font-weight: bold;
   cursor: pointer;
+  background-image: linear-gradient(#ffffff, #ececec);
 }
 
 .pausas {

@@ -1,29 +1,30 @@
 <template>
-  <div class="row dash">
-    <div class="col-sm-3 bloco">
-      <p class="title">{{ nomeAgente }}</p>
-      <p class="title">{{ nomeGrupo }}</p>
-      <p class="title">Disponível à: {{ disponibilidade }}</p>
-    </div>
-    <div class="col-sm-3 bloco">
-      <p class="title">{{ ligacoesInternas }} : Ligações Internas</p>
-      <p class="title">{{ ligacoesEntrantes }} : Ligações Entrantes</p>
-      <p class="title">{{ ligacoesSaintes }} : Ligações Saintes</p>
-    </div>
-    <div class="col-sm-3 bloco">
-      <p class="title">{{ ligacoesAtendidasSaintes }} : Ligações Atendidas/Saintes</p>
-      <p class="title">{{ ligacoesAbandonadas }} : Ligações Abandonadas</p>
-      <p class="title">{{ ligacoesTransportadas }} : Ligações Transportadas</p>
-    </div>
-    <div class="col-sm-3">
-      <p class="title">Agentes disponíveis{{ agentesDisponiveis }}</p>
-      <p class="title"></p>
-      <p class="title">Tempo Médio{{ tempoMedio }}</p>
-    </div>
-  </div>
+  <v-row class="dash">
+    <v-col cols="3" class="bloco">
+      <p class="title font-weight-light">Agente: <b>{{ nomeAgente }}</b></p>
+      <p class="title font-weight-light">Grupo: <b>{{ nomeGrupo }}</b></p>
+      <p class="title font-weight-light">Disponível à: <b>{{ disponibilidade }}</b></p>
+    </v-col>
+    <v-col cols="3" class="bloco">
+      <p class="title font-weight-light">{{ ligacoesInternas }} : Ligações Internas</p>
+      <p class="title font-weight-light">{{ ligacoesEntrantes }} : Ligações Entrantes</p>
+      <p class="title font-weight-light">{{ ligacoesSaintes }} : Ligações Saintes</p>
+    </v-col>
+    <v-col cols="3" class="bloco">
+      <p class="title font-weight-light">{{ ligacoesAtendidasSaintes }} : Ligações Atendidas/Saintes</p>
+      <p class="title font-weight-light">{{ ligacoesAbandonadas }} : Ligações Abandonadas</p>
+      <p class="title font-weight-light">{{ ligacoesTransportadas }} : Ligações Transportadas</p>
+    </v-col>
+    <v-col cols="3" class="bloco-ultimo">
+      <p class="title font-weight-light">Agentes disponíveis: <v-chip color="danger" x-small pill >{{ agentesDisponiveis }}</v-chip></p>
+      <p class="title font-weight-light"></p>
+      <p class="title font-weight-light">Tempo Médio: {{ tempoMedio }}</p>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
+
   let tmp = new Date();
   let entrada = (tmp.getHours()-1)+':'+tmp.getMinutes()+':'+tmp.getSeconds();
   let tmpMedio = '1'+':'+tmp.getMinutes()+':'+tmp.getSeconds();
@@ -51,26 +52,24 @@
     color: rgb(243, 243, 243);
     font-size: 11px;
     font-weight: lighter;
-    letter-spacing: .25px;
-    margin-top: -2px;
+    letter-spacing: 0px;
+    margin: 0px 5px;
+    line-height: 20px;
   }
 
   .dash { 
-    margin-left: 10px;
-    margin-top: -10px; 
+    margin-left: 5px;
+    margin-top: 0px;
+    padding:0px; 
     }
 
   .bloco {
     border-right: solid rgba(20, 42, 78, 0.6) 10px;
+    padding: 0px;
+    max-height: 60px;
   }
-
-  .item .name {
-    color: #6a6a6a;
-    margin-right: 6px;
-  }
-
-  .item .value {
-    color: #35495e;
-    font-weight: bold;
+  .bloco-ultimo {
+    padding: 0px;
+    max-height: 60px;
   }
 </style>
