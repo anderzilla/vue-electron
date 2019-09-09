@@ -130,9 +130,6 @@ body {
 
 .main {
   background-color: rgba(29, 61, 113, 0.75);
-  overflow: unset;
-  display: flex;
-  justify-content: space-between;
   >.row {
     margin: 0;
   }
