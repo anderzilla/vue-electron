@@ -21,7 +21,7 @@
             </a>
           </li>
           <li>
-            <a class="button">Logout</a>
+            <a class="button" @click="grupos">Grupos</a>
           </li>
           <li class="ultimo">
             <a class="button" @click="close">Fechar</a>
