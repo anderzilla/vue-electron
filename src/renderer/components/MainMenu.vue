@@ -126,7 +126,7 @@ body {
   background-color: rgba(29, 61, 113, 0.75);
   >.row {
     margin: 0;
-    >.menu {
+    .menu {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -151,7 +151,7 @@ body {
         }
       }
     }
-    >.dashboard {
+    .dashboard {
       position: absolute;
       top: 0;
       left: 400px;
