@@ -36,21 +36,15 @@
       <div class="dashboard">
         <dashboardMenu></dashboardMenu>
       </div>
-      <div class="fecharMinimizar">
-        <ul>
-          <li>
-            <button @click="closeAll">
-              <font-awesome-icon icon="window-close" id="fechar" />
-            </button>
-          </li>
-          <li>
-            <template>
-              <button @click="minimizar">
-                <font-awesome-icon icon="window-minimize" id="minimizar" />
-              </button>
-            </template>
-          </li>
-        </ul>
+      <div class="window-actions">
+        <div class="window-actions--col">
+          <button class="window-actions__btn btn--close" @click="closeAll">
+            <font-awesome-icon icon="window-close" />
+          </button>
+          <button class="window-actions__btn btn--minimize" @click="minimizar">
+            <font-awesome-icon icon="window-minimize" />
+          </button>
+        </div>
       </div>
     </v-row>
   </main>
@@ -132,29 +126,66 @@ body {
   background-color: rgba(29, 61, 113, 0.75);
   >.row {
     margin: 0;
-  }
-  .menu {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 400px;
-    height: 60px;
-    padding: 10px;
-    margin: 0;
-    color: #fff;
-    background-color: rgba(29, 61, 114, .8);
-    &__btn {
-      background-color: transparent;
-      border-style: none;
-      color: white;
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      outline: none;
-      &:hover,
-      :active {
-        color: #1d3d72;
-        background: white;
+    >.menu {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 400px;
+      height: 60px;
+      padding: 10px;
+      margin: 0;
+      color: #fff;
+      background-color: rgba(29, 61, 114, .8);
+      &__btn {
+        background-color: transparent;
+        border-style: none;
+        color: white;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        outline: none;
+        &:hover,
+        :active {
+          color: #1d3d72;
+          background: white;
+        }
+      }
+    }
+    >.dashboard {
+      position: absolute;
+      top: 0;
+      left: 400px;
+      right: 30px;
+      width: auto;
+      color: #fff;
+      border-left: solid 10px rgba(48, 174, 94, 1);
+      height: 60px;
+      margin-top: 0px;
+      padding-right: 10px;
+    }
+    .window-actions {
+      position: absolute;
+      right: 0;
+      height: 60px;
+      width: 30px;
+      color: #fff;
+      background-color: rgba(29, 61, 114, .8);
+      &--col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 60px;
+        justify-content: center;
+      }
+      &__btn {
+        color: #3268b8;
+        outline: none;
+        &.btn--close:hover {
+          color: #c90000;
+        }
+        &.btn--minimize:hover {
+          color: #fff;
+        }
       }
     }
   }
@@ -164,58 +195,6 @@ body {
   height: auto;
   margin-bottom: 20px;
   width: 420px;
-}
-
-.dashboard {
-  position: absolute;
-  top: 0;
-  left: 400px;
-  right: 30px;
-  width: auto;
-  color: #fff;
-  border-left: solid 10px rgba(48, 174, 94, 1);
-  height: 60px;
-  margin-top: 0px;
-  padding-right: 10px;
-}
-
-.fecharMinimizar {
-  position: absolute;
-  right: 0;
-  top: 0;
-  background-color: rgba(29, 61, 114, 1);
-  color: #fff;
-  float: right;
-  height: 60px;
-  margin: 0px;
-  padding: 10px 2px;
-  width: 30px;
-}
-
-.fecharMinimizar ul {
-  list-style-type: none;
-}
-
-.fecharMinimizar ul li {
-  height: 20px;
-  padding: 0px 5px;
-  line-height: 10px;
-}
-
-.fecharMinimizar ul li #fechar {
-  color: #3268b8;
-}
-
-.fecharMinimizar ul li #fechar:hover {
-  color: #c90000;
-}
-
-.fecharMinimizar ul li #minimizar {
-  color: #3268b8;
-}
-
-.fecharMinimizar ul li #minimizar:hover {
-  color: #ffffff;
 }
 
 .welcome {
