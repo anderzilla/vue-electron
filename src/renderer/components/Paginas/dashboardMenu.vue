@@ -64,7 +64,7 @@
     }
 
   .bloco {
-    border-right: solid rgba(20, 42, 78, 0.6) 10px;
+    border-right: solid rgba(29, 61, 114, .8) 10px;
     padding: 0px;
     max-height: 60px;
   }
