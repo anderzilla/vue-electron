@@ -4,27 +4,27 @@
       <div class="menu-config">
         <ul>
           <li>
-            <a class="button">Configurações</a>
+            <a class="menu-config__btn">Configurações</a>
           </li>
           <li>
-            <a class="button" @click="grupos">Grupos</a>
+            <a class="menu-config__btn" @click="grupos">Grupos</a>
           </li>
           <li>
-            <a class="button pausas">
+            <a class="menu-config__btn btn--pausas">
               Pausas
               <font-awesome-icon icon="chevron-right" />
             </a>
           </li>
           <li>
-            <a class="button disponivel">
+            <a class="menu-config__btn btn--disponivel">
               <font-awesome-icon icon="check-circle" />Disponível
             </a>
           </li>
           <li>
-            <a class="button">Logout</a>
+            <a class="menu-config__btn">Logout</a>
           </li>
           <li class="ultimo">
-            <a class="button" @click="close">Fechar</a>
+            <a class="menu-config__btn" @click="close">Fechar</a>
           </li>
         </ul>
       </div>
@@ -72,7 +72,7 @@
         width: 100%;
         height: min-content;
         padding: 0px -15px;
-        .button {
+        &__btn {
           display: block;
           text-decoration: none;
           font-family: OpenSans, Verdana, Arial;
@@ -89,12 +89,12 @@
             color: #1d3d72;
             background-color: rgba(0, 0, 0, 0.1);
           }
-        }
-        .pausas {
-          color: #ee840b;
-        }
-        .disponivel {
-          color: #30ae5e;
+          &.btn--pausas {
+            color: #ee840b;
+          }
+          &.btn--disponivel {
+            color: #30ae5e;
+          }
         }
       }
     }
