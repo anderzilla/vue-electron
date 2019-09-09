@@ -70,7 +70,6 @@
         font-size: 14px;
         width: 100%;
         height: min-content;
-        padding: 0px -15px;
         &__btn {
           display: block;
           text-decoration: none;
