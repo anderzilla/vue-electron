@@ -1,36 +1,32 @@
 <template>
   <div class="block">
     <main class="main">
-      <div class="row">
-        <div class="col" style="padding: 0;">
-          <div class="menu-config">
-            <ul>
-              <li>
-                <a class="button">Configurações</a>
-              </li>
-              <li>
-                <a class="button">Grupos</a>
-              </li>
-              <li>
-                <a class="button pausas">
-                  Pausas
-                  <font-awesome-icon icon="chevron-right" />
-                </a>
-              </li>
-              <li>
-                <a class="button disponivel">
-                  <font-awesome-icon icon="check-circle" />Disponível
-                </a>
-              </li>
-              <li>
-                <a class="button">Logout</a>
-              </li>
-              <li class="ultimo">
-                <a class="button" @click="close">Fechar</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div class="menu-config">
+        <ul>
+          <li>
+            <a class="button">Configurações</a>
+          </li>
+          <li>
+            <a class="button">Grupos</a>
+          </li>
+          <li>
+            <a class="button pausas">
+              Pausas
+              <font-awesome-icon icon="chevron-right" />
+            </a>
+          </li>
+          <li>
+            <a class="button disponivel">
+              <font-awesome-icon icon="check-circle" />Disponível
+            </a>
+          </li>
+          <li>
+            <a class="button">Logout</a>
+          </li>
+          <li class="ultimo">
+            <a class="button" @click="close">Fechar</a>
+          </li>
+        </ul>
       </div>
     </main>
   </div>
