@@ -7,7 +7,7 @@
             <a class="button">Configurações</a>
           </li>
           <li>
-            <a class="button">Grupos</a>
+            <a class="button" @click="grupos">Grupos</a>
           </li>
           <li>
             <a class="button pausas">
@@ -21,7 +21,7 @@
             </a>
           </li>
           <li>
-            <a class="button" @click="grupos">Grupos</a>
+            <a class="button">Logout</a>
           </li>
           <li class="ultimo">
             <a class="button" @click="close">Fechar</a>
