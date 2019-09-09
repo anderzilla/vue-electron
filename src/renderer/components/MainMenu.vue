@@ -1,63 +1,56 @@
 <template>
-  <main id="main-menu">
+  <main class="main">
     <v-row>
-      <div id="menu-principal">
-        <div class="menu-icones">
-          <ul>
-            <li>
-              <button @click="configuracoes">
-                <font-awesome-icon icon="bars" />
-              </button>
-            </li>
-            <li>
-              <font-awesome-icon icon="comment-alt" />
-            </li>
-            <li>
-              <font-awesome-icon icon="bell" />
-            </li>
-            <li>
-              <font-awesome-icon icon="clock" />
-            </li>
-            <li>
-              <font-awesome-icon icon="address-book" />
-            </li>
-            <li>
-              <font-awesome-icon icon="tty" />
-            </li>
-            <li>
-              <font-awesome-icon icon="phone-volume" />
-            </li>
-            <li>
-              <font-awesome-icon icon="envelope" />
-            </li>
-            <li>
-              <font-awesome-icon icon="headset" />
-            </li>
-            <li>
-              <font-awesome-icon :icon="['fab', 'whatsapp']"/>
-            </li>
-          </ul>
-        </div>
+      <div class="menu">
+        <button class="menu__btn" @click="configuracoes">
+          <font-awesome-icon icon="bars" />
+        </button>
+        <button class="menu__btn">
+          <font-awesome-icon icon="comment-alt" />
+        </button>
+        <button class="menu__btn">
+          <font-awesome-icon icon="bell" />
+        </button>
+        <button class="menu__btn">
+          <font-awesome-icon icon="clock" />
+        </button>
+        <button class="menu__btn">
+          <font-awesome-icon icon="address-book" />
+        </button>
+        <button class="menu__btn">
+          <font-awesome-icon icon="tty" />
+        </button>
+        <button class="menu__btn">
+          <font-awesome-icon icon="phone-volume" />
+        </button>
+        <button class="menu__btn">
+          <font-awesome-icon icon="envelope" />
+        </button>
+        <button class="menu__btn">
+          <font-awesome-icon icon="headset" />
+        </button>
+        <button class="menu__btn">
+          <font-awesome-icon :icon="['fab', 'whatsapp']" />
+        </button>
       </div>
       <div class="dashboard">
-       <dashboardMenu></dashboardMenu> 
-
+        <dashboardMenu></dashboardMenu>
       </div>
       <div class="fecharMinimizar">
-          <ul>
-            <li>
-              <button @click="closeAll">
-                <font-awesome-icon icon="window-close" id="fechar" />
+        <ul>
+          <li>
+            <button @click="closeAll">
+              <font-awesome-icon icon="window-close" id="fechar" />
+            </button>
+          </li>
+          <li>
+            <template>
+              <button @click="minimizar">
+                <font-awesome-icon icon="window-minimize" id="minimizar" />
               </button>
-            </li>
-            <li>
-              <template>
-                <button @click="minimizar">
-                  <font-awesome-icon icon="window-minimize" id="minimizar" />
-                </button>
-              </template>
-            </li>
-          </ul>
+            </template>
+          </li>
+        </ul>
       </div>
     </v-row>
   </main>
@@ -68,7 +61,7 @@ import dashboardMenu from "./Paginas/dashboardMenu";
 import { BrowserWindow, remote } from "electron";
 import { path } from "path";
 
-const windowManager = remote.require('electron-window-manager');
+const windowManager = remote.require("electron-window-manager");
 
 export default {
   name: "main-menu",
@@ -78,40 +71,49 @@ export default {
       this.$electron.shell.openExternal(link);
     },
     closeAll() {
-      windowManager.closeAll()
+      windowManager.closeAll();
       window.close();
     },
     minimizar() {
       remote.BrowserWindow.getFocusedWindow().minimize();
     },
     configuracoes() {
-      if (process.env.NODE_ENV !== 'development') {
-        global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
+      if (process.env.NODE_ENV !== "development") {
+        global.__static = require("path")
+          .join(__dirname, "/static")
+          .replace(/\\/g, "\\\\");
       }
-      const menuConfigPath = process.env.NODE_ENV === 'development'
-      ? 'http://localhost:9080/#/MenuConfig'
-      : `file://${__dirname}/index.html#MenuConfig`
+      const menuConfigPath =
+        process.env.NODE_ENV === "development"
+          ? "http://localhost:9080/#/MenuConfig"
+          : `file://${__dirname}/index.html#MenuConfig`;
       const yposition = window.screen.height - 370;
       const xposition = 10;
-      const cfg = windowManager.createNew('menu-config', 'Configurações', menuConfigPath, null, {
-      'width': 180,
-      'height': 320,
-      'x': xposition,
-      'y': yposition,
-      'showDevTools': false,
-      'resizable': false,
-      'alwaysOnTop': true,
-      'frame': false,
-      'transparent': true,
-      'webPreferences': {'nodeIntegration': true}
-      });
+      const cfg = windowManager.createNew(
+        "menu-config",
+        "Configurações",
+        menuConfigPath,
+        null,
+        {
+          width: 180,
+          height: 320,
+          x: xposition,
+          y: yposition,
+          showDevTools: false,
+          resizable: false,
+          alwaysOnTop: true,
+          frame: false,
+          transparent: true,
+          webPreferences: { nodeIntegration: true }
+        }
+      );
       cfg.open();
     }
   }
 };
 </script>
 
-<style>
+<style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 @import url("https://fonts.googleapis.com/css?family=Titillium+Web&display=swap");
 
@@ -119,14 +121,46 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  overflow: unset !important;
 }
 
 body {
   font-family: "Titillium Web", sans-serif;
 }
-#main-menu {
-  background-color: rgba(29,61,114,0.8);
-  overflow-x: hidden;
+
+.main {
+  background-color: rgba(29, 61, 113, 0.75);
+  overflow: unset;
+  display: flex;
+  justify-content: space-between;
+  >.row {
+    margin: 0;
+  }
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px;
+    height: 60px;
+    padding: 10px;
+    margin: 0;
+    color: #fff;
+    background-color: rgba(29, 61, 114, .8);
+    &__btn {
+      background-color: transparent;
+      border-style: none;
+      color: white;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      outline: none;
+      &:hover,
+      :active {
+        color: #1d3d72;
+        background: white;
+      }
+    }
+  }
 }
 
 #logo {
@@ -135,63 +169,14 @@ body {
   width: 420px;
 }
 
-main {
-  display: flex;
-  justify-content: space-between;
-}
-
-main > div {
-  flex-basis: 50%;
-}
-
-.left-side {
-  display: flex;
-  flex-direction: column;
-}
-/*remove scrollbar */
-::-webkit-scrollbar {
-  display: none;
-}
-
-.menu-icones {
-    color: #fff;
-    background-color: rgba(29,61,114,1);
-    height: 60px;
-    margin: 0px;
-    padding: 10px;
-    min-width: 420px;
-    width: 420px;
-}
-
-.menu-icones ul {
-  display: inline;
-}
-
-.menu-icones ul li {
-  display: inline;
-  height: 40px;
-  padding: 0px 10px;
-  line-height: 40px;
-}
-
-.menu-icones ul li a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.menu-icones ul li a:hover {
-  color: #3268d8;
-  text-decoration: none;
-}
-
 .dashboard {
   position: absolute;
   top: 0;
-  left:400px;
+  left: 400px;
   right: 30px;
   width: auto;
   color: #fff;
-  border-left: solid 10px rgba(48,174,94,1);
+  border-left: solid 10px rgba(48, 174, 94, 1);
   height: 60px;
   margin-top: 0px;
   padding-right: 10px;
@@ -201,7 +186,7 @@ main > div {
   position: absolute;
   right: 0;
   top: 0;
-  background-color: rgba(29,61,114,1);
+  background-color: rgba(29, 61, 114, 1);
   color: #fff;
   float: right;
   height: 60px;
