@@ -33,9 +33,7 @@
           <font-awesome-icon :icon="['fab', 'whatsapp']" />
         </button>
       </div>
-      <div class="dashboard">
-        <dashboardMenu></dashboardMenu>
-      </div>
+      <dashboardMenu></dashboardMenu>
       <div class="window-actions">
         <div class="window-actions--col">
           <button class="window-actions__btn btn--close" @click="closeAll">
@@ -123,7 +121,7 @@ body {
 }
 
 .main {
-  background-color: rgba(29, 61, 113, 0.75);
+  background-color: rgba(29, 61, 113, .8);
   >.row {
     margin: 0;
     .menu {
@@ -150,18 +148,6 @@ body {
           background: white;
         }
       }
-    }
-    .dashboard {
-      position: absolute;
-      top: 0;
-      left: 400px;
-      right: 30px;
-      width: auto;
-      color: #fff;
-      border-left: solid 10px rgba(48, 174, 94, 1);
-      height: 60px;
-      margin-top: 0px;
-      padding-right: 10px;
     }
     .window-actions {
       position: absolute;
