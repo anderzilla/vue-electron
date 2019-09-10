@@ -24,7 +24,8 @@ import {
   faWindowMinimize, 
   faWindowClose,
   faCheckCircle,
-  faChevronRight, 
+  faChevronRight,
+  faTimesCircle, 
 } from '@fortawesome/free-solid-svg-icons'
 
 Vue.use(Vuetify)
@@ -47,6 +48,7 @@ library.add(faWindowMinimize)
 library.add(faWindowClose)
 library.add(faCheckCircle)
 library.add(faChevronRight)
+library.add(faTimesCircle)
 library.add(faWhatsapp)
  
 Vue.component('font-awesome-icon', FontAwesomeIcon)

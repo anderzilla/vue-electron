@@ -16,6 +16,21 @@ export default new Router({
       component: require('@/components/MenuConfig').default,
     },
     {
+      path: '/alterarSenha',
+      name: 'alterar-senha',
+      component: require('@/components/Paginas/AlterarSenha').default,
+    },
+    {
+      path: '/grupos',
+      name: 'menu-grupos',
+      component: require('@/components/SubMenus/Grupos').default,
+    },
+    {
+      path: '/pausas',
+      name: 'menu-pausas',
+      component: require('@/components/SubMenus/Pausas').default,
+    },
+    {
       path: '*',
       redirect: '/'
     }

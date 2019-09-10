@@ -5,7 +5,7 @@
         <div class="menu-config">
           <ul @mouseleave="close">
             <li>
-             <button @click="configuracoes" class="titulo">Configurações</button>
+             <button @click="alterarSenha" class="titulo">Alterar Senha</button>
             </li>
             <li>
               <button @click="grupos">Grupos</button>
@@ -17,8 +17,7 @@
               <button @click="disponivel" class="disponivel"><font-awesome-icon icon="check-circle" />  Disponível</button>
             </li>
             <li>
-              <button @click="grupos">Grupos</button>
-             <span>Logout</span>
+              <button @click="logout">Logout</button>
             </li>
             <li class="ultimo">
               <button @click="close">
@@ -48,6 +47,75 @@ export default {
     },
     minimizar() {
       remote.BrowserWindow.getFocusedWindow().minimize();
+    },
+    alterarSenha() {
+      if (process.env.NODE_ENV !== 'development') {
+        global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
+      }
+      const alterarSenhaPath = process.env.NODE_ENV === 'development'
+      ? 'http://localhost:9080/#/AlterarSenha'
+      : `file://${__dirname}/index.html#AlterarSenha`
+      const yposition = window.screen.height - 480;
+      const xposition = 200;
+      const altpass = windowManager.createNew('alterar-senha', 'Alterar Senha', alterarSenhaPath, null, {
+      'width': 350,
+      'height': 350,
+      'x': xposition,
+      'y': yposition,
+      'showDevTools': false,
+      'resizable': false,
+      'alwaysOnTop': true,
+      'frame': false,
+      'transparent': true,
+      'webPreferences': {'nodeIntegration': true}
+      });
+      altpass.open();
+    },
+    grupos() {
+      if (process.env.NODE_ENV !== 'development') {
+        global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
+      }
+      const gruposPath = process.env.NODE_ENV === 'development'
+      ? 'http://localhost:9080/#/Grupos'
+      : `file://${__dirname}/index.html#Grupos`
+      const yposition = window.screen.height - 470;
+      const xposition = 190;
+      const menuGrupos = windowManager.createNew('menu-grupos', 'Grupos', gruposPath, null, {
+      'width': 250,
+      'height': 355,
+      'x': xposition,
+      'y': yposition,
+      'showDevTools': false,
+      'resizable': false,
+      'alwaysOnTop': true,
+      'frame': false,
+      'transparent': true,
+      'webPreferences': {'nodeIntegration': true}
+      });
+      menuGrupos.open();
+    },
+    pausas() {
+      if (process.env.NODE_ENV !== 'development') {
+        global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
+      }
+      const pausasPath = process.env.NODE_ENV === 'development'
+      ? 'http://localhost:9080/#/Pausas'
+      : `file://${__dirname}/index.html#Pausas`
+      const yposition = window.screen.height - 500;
+      const xposition = 190;
+      const menuPausas = windowManager.createNew('menu-pausas', 'Pausas', pausasPath, null, {
+      'width': 400,
+      'height': 455,
+      'x': xposition,
+      'y': yposition,
+      'showDevTools': false,
+      'resizable': false,
+      'alwaysOnTop': true,
+      'frame': false,
+      'transparent': true,
+      'webPreferences': {'nodeIntegration': true}
+      });
+      menuPausas.open();
     }
   }
 };
