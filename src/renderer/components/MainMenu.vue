@@ -9,7 +9,10 @@
           <font-awesome-icon icon="comment-alt" />
         </button>
         <button class="menu__btn">
-          <font-awesome-icon icon="bell" />
+          <v-badge>
+            <template v-slot:badge>1</template>
+            <font-awesome-icon icon="bell" />
+          </v-badge>
         </button>
         <button class="menu__btn">
           <font-awesome-icon icon="clock" />
@@ -146,6 +149,9 @@ body {
         :active {
           color: #1d3d72;
           background: white;
+        }
+        .v-badge__badge {
+          background: #ff9100
         }
       }
     }
