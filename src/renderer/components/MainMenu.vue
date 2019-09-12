@@ -13,7 +13,7 @@
         </button>
         <button class="menu__btn">
           <v-badge>
-            <template v-slot:badge>{asdasd}</template>
+            <template v-slot:badge>1</template>
             <font-awesome-icon icon="bell" />
           </v-badge>
         </button>

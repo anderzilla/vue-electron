@@ -53,12 +53,13 @@
 
 <script>
 const tmp = new Date();
-const entrada = tmp.getHours() - 1 + ":" + tmp.getMinutes() + ":" + tmp.getSeconds();
+const entrada =
+  tmp.getHours() - 1 + ":" + tmp.getMinutes() + ":" + tmp.getSeconds();
 const tmpMedio = "1" + ":" + tmp.getMinutes() + ":" + tmp.getSeconds();
 export default {
   data() {
     return {
-      nomeAgente: "Fulano de tal",
+      nomeAgente: this.$t("app.name"),
       nomeGrupo: "Desenvolvedores",
       disponibilidade: entrada,
       ligacoesInternas: "10",
