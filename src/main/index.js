@@ -20,30 +20,28 @@ function createWindow () {
   /**
  * Initial window options
  */
-  setTimeout(() => {
-    const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
-    const yposition = (height - 60);
-    windowManager.init('...');
-    windowManager.setDefaultSetup({
-      width,
-      height: 60,
-      x: 0,
-      y: yposition,
-      scrollBounce: false,
-      showDevTools: false,
-      resizable: false,
-      movable: false,
-      minimizable: false,
-      maximizable: false,
-      alwaysOnTop: true,
-      frame: false,
-      transparent: true,
-      webPreferences: {
-        nodeIntegration: true
-      }
-    })
-    windowManager.open('mainmenu', 'Clarity', winURL)
-  }, 500)
+  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
+  const yposition = (height - 60);
+  windowManager.init('...');
+  windowManager.setDefaultSetup({
+    width,
+    height: 60,
+    x: 0,
+    y: yposition,
+    scrollBounce: false,
+    showDevTools: false,
+    resizable: false,
+    movable: false,
+    minimizable: false,
+    maximizable: false,
+    alwaysOnTop: true,
+    frame: false,
+    transparent: true,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
+  windowManager.open('mainmenu', 'Clarity', winURL)
 }
 
 app.on('ready', createWindow)
