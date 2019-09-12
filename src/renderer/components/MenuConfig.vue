@@ -64,7 +64,7 @@
       box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.270);
       border-radius: 5px;
       text-align: center;
-      background-color: rgb(255, 255, 255);
+      background-color: #fff;
       .menu-config {
         color: #4a4a4a;
         font-size: 14px;

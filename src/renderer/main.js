@@ -11,20 +11,20 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFontAwesome } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { 
-  faCommentAlt, 
-  faBars, 
-  faBell, 
-  faClock, 
-  faAddressBook, 
-  faTty, 
-  faPhoneVolume, 
-  faEnvelope, 
-  faHeadset, 
-  faWindowMinimize, 
+import {
+  faCommentAlt,
+  faBars,
+  faBell,
+  faClock,
+  faAddressBook,
+  faTty,
+  faPhoneVolume,
+  faEnvelope,
+  faHeadset,
+  faWindowMinimize,
   faWindowClose,
   faCheckCircle,
-  faChevronRight, 
+  faChevronRight,
 } from '@fortawesome/free-solid-svg-icons'
 
 Vue.use(Vuetify)
@@ -48,9 +48,9 @@ library.add(faWindowClose)
 library.add(faCheckCircle)
 library.add(faChevronRight)
 library.add(faWhatsapp)
- 
+
 Vue.component('font-awesome-icon', FontAwesomeIcon)
- 
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

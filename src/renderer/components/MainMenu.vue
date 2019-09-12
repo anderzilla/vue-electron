@@ -2,7 +2,10 @@
   <main class="main">
     <v-row>
       <div class="menu">
-        <button class="menu__btn" @click="configuracoes">
+        <button
+          class="menu__btn"
+          @click="configuracoes"
+        >
           <font-awesome-icon icon="bars" />
         </button>
         <button class="menu__btn">
@@ -10,7 +13,7 @@
         </button>
         <button class="menu__btn">
           <v-badge>
-            <template v-slot:badge>1</template>
+            <template v-slot:badge>{asdasd}</template>
             <font-awesome-icon icon="bell" />
           </v-badge>
         </button>
@@ -39,10 +42,16 @@
       <dashboardMenu></dashboardMenu>
       <div class="window-actions">
         <div class="window-actions--col">
-          <button class="window-actions__btn btn--close" @click="closeAll">
+          <button
+            class="window-actions__btn btn--close"
+            @click="closeAll"
+          >
             <font-awesome-icon icon="window-close" />
           </button>
-          <button class="window-actions__btn btn--minimize" @click="minimizar">
+          <button
+            class="window-actions__btn btn--minimize"
+            @click="minimizar"
+          >
             <font-awesome-icon icon="window-minimize" />
           </button>
         </div>
@@ -96,6 +105,9 @@ export default {
           y: yposition,
           showDevTools: false,
           resizable: false,
+          movable: false,
+          minimizable: false,
+          maximizable: false,
           alwaysOnTop: true,
           frame: false,
           transparent: true,
@@ -124,8 +136,8 @@ body {
 }
 
 .main {
-  background-color: rgba(29, 61, 113, .8);
-  >.row {
+  background-color: rgba(29, 61, 113, 0.8);
+  > .row {
     margin: 0;
     .menu {
       display: flex;
@@ -136,7 +148,7 @@ body {
       padding: 10px;
       margin: 0;
       color: #fff;
-      background-color: rgba(29, 61, 114, .8);
+      background-color: rgba(29, 61, 114, 0.8);
       &__btn {
         background-color: transparent;
         border-style: none;
@@ -151,7 +163,7 @@ body {
           background: white;
         }
         .v-badge__badge {
-          background: #ff9100
+          background: #ff9100;
         }
       }
     }
@@ -161,7 +173,7 @@ body {
       height: 60px;
       width: 30px;
       color: #fff;
-      background-color: rgba(29, 61, 114, .8);
+      background-color: rgba(29, 61, 114, 0.8);
       &--col {
         display: flex;
         flex-direction: column;
