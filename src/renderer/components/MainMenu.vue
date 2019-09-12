@@ -136,7 +136,7 @@ body {
 }
 
 .main {
-  background-color: rgba(29, 61, 113, 0.8);
+  background-color: #435d8d;
   > .row {
     margin: 0;
     .menu {
@@ -148,7 +148,7 @@ body {
       padding: 10px;
       margin: 0;
       color: #fff;
-      background-color: rgba(29, 61, 114, 0.8);
+      background-color: #1d3d72;
       &__btn {
         background-color: transparent;
         border-style: none;

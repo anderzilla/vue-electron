@@ -92,7 +92,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-right: solid rgba(29, 61, 114, 0.8) 10px;
+    border-right: solid #1d3d72 10px;
     &:last-of-type {
       border: none;
     }
