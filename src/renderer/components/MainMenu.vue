@@ -2,14 +2,20 @@
   <main class="main">
     <v-row>
       <div class="menu">
-        <button class="menu__btn" @click="configuracoes">
+        <button
+          class="menu__btn"
+          @click="configuracoes"
+        >
           <font-awesome-icon icon="bars" />
         </button>
         <button class="menu__btn">
           <font-awesome-icon icon="comment-alt" />
         </button>
         <button class="menu__btn">
-          <font-awesome-icon icon="bell" />
+          <v-badge>
+            <template v-slot:badge>1</template>
+            <font-awesome-icon icon="bell" />
+          </v-badge>
         </button>
         <button class="menu__btn">
           <font-awesome-icon icon="clock" />
@@ -33,15 +39,19 @@
           <font-awesome-icon :icon="['fab', 'whatsapp']" />
         </button>
       </div>
-      <div class="dashboard">
-        <dashboardMenu></dashboardMenu>
-      </div>
+      <dashboardMenu></dashboardMenu>
       <div class="window-actions">
         <div class="window-actions--col">
-          <button class="window-actions__btn btn--close" @click="closeAll">
+          <button
+            class="window-actions__btn btn--close"
+            @click="closeAll"
+          >
             <font-awesome-icon icon="window-close" />
           </button>
-          <button class="window-actions__btn btn--minimize" @click="minimizar">
+          <button
+            class="window-actions__btn btn--minimize"
+            @click="minimizar"
+          >
             <font-awesome-icon icon="window-minimize" />
           </button>
         </div>
@@ -95,6 +105,9 @@ export default {
           y: yposition,
           showDevTools: false,
           resizable: false,
+          movable: false,
+          minimizable: false,
+          maximizable: false,
           alwaysOnTop: true,
           frame: false,
           transparent: true,
@@ -123,8 +136,8 @@ body {
 }
 
 .main {
-  background-color: rgba(29, 61, 113, 0.75);
-  >.row {
+  background-color: #435d8d;
+  > .row {
     margin: 0;
     .menu {
       display: flex;
@@ -135,7 +148,7 @@ body {
       padding: 10px;
       margin: 0;
       color: #fff;
-      background-color: rgba(29, 61, 114, .8);
+      background-color: #1d3d72;
       &__btn {
         background-color: transparent;
         border-style: none;
@@ -149,19 +162,10 @@ body {
           color: #1d3d72;
           background: white;
         }
+        .v-badge__badge {
+          background: #ff9100;
+        }
       }
-    }
-    .dashboard {
-      position: absolute;
-      top: 0;
-      left: 400px;
-      right: 30px;
-      width: auto;
-      color: #fff;
-      border-left: solid 10px rgba(48, 174, 94, 1);
-      height: 60px;
-      margin-top: 0px;
-      padding-right: 10px;
     }
     .window-actions {
       position: absolute;
@@ -169,7 +173,7 @@ body {
       height: 60px;
       width: 30px;
       color: #fff;
-      background-color: rgba(29, 61, 114, .8);
+      background-color: rgba(29, 61, 114, 0.8);
       &--col {
         display: flex;
         flex-direction: column;
