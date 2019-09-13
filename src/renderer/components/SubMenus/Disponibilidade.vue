@@ -1,40 +1,23 @@
 <template>
-  <main id="menu-grupos">
+  <main id="menu-disponibilidade">
     <v-row>
-      <div class="col-md-4" id="menu-grupos">
-        <div class="menu-grupos">
-          <h1>{{ $t("app.grupos") }}</h1>
-
-          <ul>
-            <li>
-              <input type="checkbox" id="grupo1" class="mx-2" color="#B91717" checked disabled/>
-              <label for="grupo1">Grupo 1</label>
-            </li>
-            <li>
-              <input type="checkbox" id="grupo2" class="mx-2" color="#B91717" />
-              <label for="grupo2">Grupo 2</label>
-            </li>
-            <li>
-              <input type="checkbox" id="grupo3" class="mx-2" color="#B91717" />
-              <label for="grupo3">Grupo 3</label>
-            </li>
-            <li>
-              <input type="checkbox" id="grupo4" class="mx-2" color="#B91717" />
-              <label for="grupo4">Grupo 4</label>
-            </li>
-            <li>
-              <input type="checkbox" id="grupo5" class="mx-2" color="#B91717" />
-              <label for="grupo5">Grupo 5</label>
-            </li>
-          </ul>
-          <div class="botoes">
-            <v-btn text small color="#B91717" @click="close">
-              <font-awesome-icon icon="times-circle" class="icn-btn" />{{ $t("app.cancelar") }}
-            </v-btn>
-            <v-btn small color="#B91717" class="btn-txt-branco">
-              <font-awesome-icon icon="check-circle" class="icn-btn" />{{ $t("app.salvar") }}
-            </v-btn>
-          </div>
+      <div class="col-md-4" id="menu-disponibilidade">
+        <div class="menu-disponibilidade">
+          <h1>{{ $t("app.disponibilidade") }}</h1>
+          <v-container>
+            <v-row>
+              <v-col class="md-6">
+                <ul>
+                  <li>
+                    <button @click="testealerta" class="btnPausas disponibilidade"><font-awesome-icon icon="check-circle" />  {{ $t("app.disponivel")}}</button>
+                  </li>
+                  <li>
+                    <button @click="close" class="btnPausas email"><font-awesome-icon icon="envelope" />  {{ $t("app.email") }}</button>
+                  </li>
+                </ul>
+              </v-col>
+            </v-row>
+          </v-container>
         </div>
       </div>
     </v-row>
@@ -47,13 +30,16 @@ import { path } from "path";
 const windowManager = remote.require("electron-window-manager");
 
 export default {
-  name: "menu-grupos",
+  name: "menu-disponibilidade",
   methods: {
     open(link) {
       this.$electron.shell.openExternal(link);
     },
     close() {
       window.close();
+    },
+    testealerta() {
+      alert('Any fool can use a computer');
     },
     minimizar() {
       remote.BrowserWindow.getFocusedWindow().minimize();
@@ -75,7 +61,7 @@ export default {
 body {
   font-family: "Titillium Web", sans-serif;
 }
-#menu-grupos {
+#menu-disponibilidade {
   background-color: #ffffff;
   overflow-x: hidden;
   border-radius: 5px;
@@ -102,62 +88,69 @@ main > div {
   display: none;
 }
 
-.menu-grupos {
+.menu-disponibilidade {
   color: #4a4a4a;
   font-size: 14px;
   width: 100%;
-  height: 340px;
+  height: 160px;
   padding: 5px 25px;
 }
 
-.menu-grupos h1{
-    font-weight: lighter;
-    font-size: 20px;
-    text-align: left
+.menu-disponibilidade h1 {
+  font-weight: lighter;
+  font-size: 20px;
+  text-align: left;
 }
 
-.menu-grupos ul {
-  width: 90%;
-  margin: 0px 10px;
-  list-style-type:none;
+.menu-disponibilidade ul {
+  width: 100%;
+  margin: 0px;
+  list-style-type: none;
+  text-align: center;
 }
 
-.menu-grupos ul li {
-  height: 45px;
-  padding: 10px 0px;
-  line-height: 25px;
-  border-bottom: #ececec solid 1px;
+.menu-disponibilidade ul li {
+  height: 40px;
+  padding:20px -10px;
+  line-height: 30px;
 }
 
-.menu-grupos ul li:hover {
+.menu-disponibilidade ul li:hover {
   font-weight: bold;
   cursor: pointer;
-  background-image: linear-gradient(#ffffff, #ececec);
 }
 
-.botoes{
-    margin-top: 25px;
+.botoesPausa {
+  text-align: center;
+}
+
+.btnPausas{
+    border: 1px #ececec solid;
+    width: 100%;
     text-align: center;
+    border-radius: 5px;
 }
 
-.pausas {
-  color: #ee840b;
-}
-
-.disponivel {
+.disponibilidade {
   color: #30ae5e;
+  border: #30ae5e solid 1px;
+}
+
+.email {
+  color:#EE840B;
+  border: #EE840B solid 1px;
 }
 
 .ultimo {
   border-bottom: none !important;
 }
 
-.menu-grupos ul li a {
+.menu-disponibilidade ul li a {
   color: #4a4a4a;
   text-decoration: none;
 }
 
-.menu-grupos ul li a:hover {
+.menu-disponibilidade ul li a:hover {
   color: #3268d8;
   text-decoration: none;
 }

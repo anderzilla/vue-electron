@@ -3,59 +3,59 @@
     <v-row>
       <div class="col-md-4" id="menu-pausa">
         <div class="menu-pausa">
-          <h1>Pausas</h1>
+          <h1>{{$t("app.pausas")}}</h1>
           <v-container>
             <v-row>
               <v-col class="md-6">
                 <ul>
                   <li>
-                    <button @click="testealerta" class="btnPausas">Acesso Remoto</button>
+                    <button @click="setPausa('Acesso Remoto')" class="btnPausas">{{ $t("app.acessoRemoto")}}</button>
                   </li>
                   <li>
-                    <button @click="close" class="btnPausas">Almoço</button>
+                    <button @click="setPausa('Almoço')" class="btnPausas">{{ $t("app.almoco")}}</button>
                   </li>
                   <li>
-                    <button @click="close" class="btnPausas">Análise caso crítico</button>
+                    <button @click="setPausa('Análise caso crítico')" class="btnPausas">{{ $t("app.analiseCasoCritico")}}</button>
                   </li>
                   <li>
-                    <button @click="close" class="btnPausas">Apoio técnico interno</button>
+                    <button @click="setPausa('Apoio Técnico Interno')" class="btnPausas">{{ $t("app.apoioTecnicoInterno")}}</button>
                   </li>
                   <li>
-                   <button @click="close" class="btnPausas">Assuntos adm/fin.</button>
+                   <button @click="setPausa('Assuntos adm/fin.')" class="btnPausas">{{ $t("app.assuntosAdministrativoFinanceiro")}}</button>
                   </li>
                   <li>
-                    <button @click="close" class="btnPausas">Banheiro</button>
+                    <button @click="setPausa('Banheiro')" class="btnPausas">{{ $t("app.banheiro")}}</button>
                   </li>
                   <li>
-                    <button @click="close" class="btnPausas">Cafezinho</button>
+                    <button @click="setPausa('Cafezinho')" class="btnPausas">{{ $t("app.cafezinho")}}</button>
                   </li>
                   <li>
-                    <button @click="close" class="btnPausas">Em Treinamento</button>
+                    <button @click="setPausa('Em Treinamento')" class="btnPausas">{{ $t("app.emTreinamento")}}</button>
                   </li>
                 </ul>
               </v-col>
               <v-col class="md-6">
                 <ul>
                   <li>
-                    <button @click="close" class="btnPausas">Laboratório</button>
+                    <button @click="setPausa('Laboratório')" class="btnPausas">{{ $t("app.laboratorio")}}</button>
                   </li>
                   <li>
-                    <button @click="close" class="btnPausas">Lanche da tarde</button>
+                    <button @click="setPausa('Lanche da tarde')" class="btnPausas">{{ $t("app.lancheDaTarde")}}</button>
                   </li>
                   <li>
-                    <button @click="close" class="btnPausas">OS Externa</button>
+                    <button @click="setPausa('OS Externa')" class="btnPausas">{{ $t("app.osExterna")}}</button>
                   </li>
                   <li>
-                    <button @click="close" class="btnPausas">Qualificador</button>
+                    <button @click="setPausa('Qualificador')" class="btnPausas">{{ $t("app.qualificador")}}</button>
                   </li>
                   <li>
-                   <button @click="close" class="btnPausas">Reunião com Gerência</button>
+                   <button @click="setPausa('Reunião com Gerência')" class="btnPausas">{{ $t("app.reuniaoComGerencia")}}</button>
                   </li>
                   <li>
-                    <button @click="close" class="btnPausas">Reunião kick-off</button>
+                    <button @click="setPausa('Reunião kick-off')" class="btnPausas">{{ $t("app.reuniaoKickOff")}}</button>
                   </li>
                   <li>
-                    <button @click="close" class="btnPausas">Visita Cliente</button>
+                    <button @click="setPausa('Visita Cliente')" class="btnPausas">{{ $t("app.visitaCliente")}}</button>
                   </li>
                   <li>
                     
@@ -83,6 +83,28 @@ export default {
     },
     close() {
       window.close();
+    },
+    setPausa(x) { 
+      if (localStorage.pausa === x){
+        var d = new Date();
+        var now = d.toLocaleTimeString();
+        localStorage.setItem('disponibilidade', now);
+        localStorage.setItem('pausaInicio', '');
+        localStorage.setItem('pausa', '');
+        alert('Pausa Encerrada! - '+x);
+        var mainmenu = windowManager.get('mainmenu');
+        mainmenu.reload(true);
+        window.close();
+      }else{
+        var d = new Date();
+        var now = d.toLocaleTimeString();
+        localStorage.setItem('pausa', x);
+        localStorage.setItem('pausaInicio', now);
+        alert('Pausa Iniciada! - '+x);
+        var mainmenu = windowManager.get('mainmenu');
+        mainmenu.reload(true);
+        window.close();
+      }
     },
     testealerta() {
       alert('Any fool can use a computer');

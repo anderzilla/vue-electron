@@ -1,0 +1,9 @@
+{
+	"app": {
+        "alterarsenha": "Change Pass",
+        "grupos": "Groups",
+        "pausas": "Pauses",
+        "disponivel": "Disponible",
+        "sair": "Logout"
+	}
+}
